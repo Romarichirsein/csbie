@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #1A1A2E; /* csbie-text */
+}
+
+@layer base {
+  body {
+    @apply bg-white text-csbie-text font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-titles text-csbie-primary;
+  }
+
+  /* Automatically handle light text on brand colored backgrounds */
+  .bg-csbie-primary h1, .bg-csbie-primary h2, .bg-csbie-primary h3, .bg-csbie-primary h4, .bg-csbie-primary h5, .bg-csbie-primary h6,
+  .bg-csbie-secondary h1, .bg-csbie-secondary h2, .bg-csbie-secondary h3, .bg-csbie-secondary h4, .bg-csbie-secondary h5, .bg-csbie-secondary h6,
+  .bg-csbie-gold h1, .bg-csbie-gold h2, .bg-csbie-gold h3, .bg-csbie-gold h4, .bg-csbie-gold h5, .bg-csbie-gold h6 {
+    @apply text-white;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-csbie-primary text-white px-6 py-3 rounded-md hover:bg-csbie-secondary transition-all duration-300;
+  }
+  
+  .btn-gold {
+    @apply bg-csbie-gold text-white px-6 py-3 rounded-md hover:brightness-110 transition-all duration-300;
+  }
+}
