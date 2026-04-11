@@ -22,7 +22,7 @@ export function CambridgeTeaser() {
           >
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-zinc-50 group">
               <Image
-                src="/hero-bg.png"
+                src="/images/cambridge-hero.jpeg"
                 alt="Cambridge Program"
                 width={600}
                 height={700}
@@ -164,7 +164,7 @@ export function SportsTeaser() {
              <div className="relative group">
                 <div className="w-[320px] h-[450px] md:w-[450px] md:h-[600px] rounded-[4rem] overflow-hidden border-[12px] border-white/10 shadow-2xl relative">
                   <Image
-                    src="/sports-hero.png"
+                    src="/images/sports-hero.jpg"
                     alt="Sports Academy"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"

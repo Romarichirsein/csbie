@@ -17,7 +17,7 @@ export default function EtablissementPage() {
       {/* Hero Presentation */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="/hero-bg.png" // Placeholder
+          src="/images/etablissement-hero.jpeg" // Placeholder
           alt="Présentation CSBIE"
           fill
           className="object-cover"

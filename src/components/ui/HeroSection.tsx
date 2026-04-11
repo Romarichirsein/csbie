@@ -18,7 +18,7 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/hero-bg.png"
+          src="/images/hero-home.jpeg"
           alt="CSBIE Campus"
           fill
           priority

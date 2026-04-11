@@ -20,17 +20,17 @@ const sportValues = [
 const sportCategories = [
   {
     name: 'Football',
-    image: '/sports-hero.png',
+    image: '/images/sport-football.jpg',
     description: 'De l\'initiation au perfectionnement tactique sous l\'égide de coachs certifiés.',
   },
   {
     name: 'Basketball',
-    image: '/sports-hero.png',
+    image: '/images/sport-basketball.jpg',
     description: 'Développement de l\'adresse, de la vision de jeu et de l\'esprit de compétition.',
   },
   {
     name: 'Natation',
-    image: '/sports-hero.png',
+    image: '/images/sports-hero.jpg',
     description: 'Une infrastructure de pointe pour des cours sécurisés et une maîtrise technique.',
   },
 ];
@@ -50,7 +50,7 @@ export default function SportsAcademyPage() {
       <section ref={containerRef} className="relative h-[80vh] flex items-center overflow-hidden bg-csbie-primary">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <Image
-            src="/sports-hero.png"
+            src="/images/sports-hero.jpg"
             alt="Académie de Sports CSBIE"
             fill
             className="object-cover scale-110"
@@ -165,7 +165,7 @@ export default function SportsAcademyPage() {
                   </p>
                   <div className="mt-auto">
                     <Link
-                      href={`/academie-sports/${sport.name.toLowerCase()}`}
+                      href="/contact"
                       className="inline-flex items-center gap-3 bg-zinc-50 text-csbie-primary px-8 py-4 rounded-xl font-ui font-bold hover:bg-csbie-gold hover:text-white transition-all shadow-sm group/btn"
                     >
                       Voir le programme <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />

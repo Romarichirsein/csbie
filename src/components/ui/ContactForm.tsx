@@ -32,15 +32,15 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (response.ok) {
-        setSubmitted(true);
-        reset();
-      }
+      // Construction du message WhatsApp
+      const text = `*Nouveau Message de Contact (Site Web)*%0A%0A*Nom:* ${data.nom}%0A*Email:* ${data.email}%0A*Téléphone:* ${data.telephone || 'Non renseigné'}%0A*Objet:* ${data.objet}%0A*Message:*%0A${data.message}`;
+      const waUrl = `https://wa.me/237697849968?text=${text}`;
+      
+      // Ouvrir WhatsApp dans un nouvel onglet
+      window.open(waUrl, '_blank');
+      
+      setSubmitted(true);
+      reset();
     } catch (error) {
       console.error('Erreur envoi formulaire:', error);
     } finally {

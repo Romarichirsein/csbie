@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// Version 1.0.1 - Restarting dev server to refresh manifest
 const nextConfig = {
   // Désactivation de l'optimisation des polices à cause des problèmes réseaux
   optimizeFonts: false,

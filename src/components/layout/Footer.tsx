@@ -154,8 +154,8 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex gap-8">
-            <Link href="/privacy" className="hover:text-white transition-colors">Confidentialité</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Mentions Légales</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">Confidentialité</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">Mentions Légales</Link>
           </div>
         </div>
       </motion.div>

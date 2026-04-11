@@ -99,7 +99,7 @@ export default function CambridgePage() {
             >
               <div className="rounded-[4rem] overflow-hidden shadow-2xl border-[12px] border-zinc-50 group">
                 <Image
-                  src="/hero-bg.png"
+                  src="/images/cambridge-hero.jpeg"
                   alt="Principal Section Cambridge"
                   width={600}
                   height={500}

@@ -31,10 +31,12 @@ export default function NewsletterForm() {
     setIsSubmitting(true);
     setError(null);
     
-    // Simuler un appel API
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log('Newsletter subscription:', data.email);
+      const text = `*Nouvelle Inscription Newsletter (Site Web)*%0A%0A*Email:* ${data.email}`;
+      const waUrl = `https://wa.me/237697849968?text=${text}`;
+      
+      window.open(waUrl, '_blank');
+      
       setIsSuccess(true);
       reset();
     } catch (err) {
