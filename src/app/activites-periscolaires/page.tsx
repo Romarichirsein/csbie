@@ -81,21 +81,47 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
-      {/* Galerie Placeholder */}
+      {/* Galerie d'Images Authentiques */}
       <section className="py-24">
         <div className="section-container">
           <SectionTitle 
             title="L'Esprit CSBIE en Images" 
             subtitle="Des moments de joie, de découverte et de partage capturés sur le vif."
           />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="aspect-square bg-zinc-200 rounded-2xl overflow-hidden relative group">
-                <div className="absolute inset-0 bg-csbie-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="text-white font-ui font-bold text-sm">Voir l'image</span>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {[
+              { src: '/images/activities/activity-1.jpg', alt: 'Cours de danse traditionnelle', caption: 'Expression Artistique' },
+              { src: '/images/activities/activity-2.jpg', alt: 'Préparation spectacle', caption: 'Danse & Loisirs' },
+              { src: '/images/activities/activity-3.jpg', alt: 'Semaine de la jeunesse', caption: 'Fête de la Jeunesse' },
+              { src: '/images/activities/activity-4.jpg', alt: 'Célébration scolaire', caption: 'Partage & Joie' },
+              { src: '/images/activities/activity-5.jpg', alt: 'Coopérative scolaire', caption: 'Engagement' },
+              { src: '/images/activities/activity-6.jpg', alt: 'Vie d\'école', caption: 'Coopération' },
+              { src: '/images/activities/activity-7.jpg', alt: 'Arbre de Noël', caption: 'Magie de Noël' },
+              { src: '/images/activities/activity-8.jpg', alt: 'Spectacle de fin d\'année', caption: 'Spectacles' },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-zinc-100 shadow-lg hover:shadow-2xl transition-all duration-500"
+              >
+                <Image 
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-csbie-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                  <span className="text-csbie-gold font-ui font-black text-[10px] uppercase tracking-[0.2em] mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    CSBIE Life
+                  </span>
+                  <h4 className="text-white font-titles font-bold text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                    {img.caption}
+                  </h4>
                 </div>
-                {/* Image placeholder */}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

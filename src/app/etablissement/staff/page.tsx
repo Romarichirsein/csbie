@@ -1,3 +1,5 @@
+'use client';
+
 import SectionTitle from '@/components/ui/SectionTitle';
 import StaffCard from '@/components/ui/StaffCard';
 import { motion } from 'framer-motion';

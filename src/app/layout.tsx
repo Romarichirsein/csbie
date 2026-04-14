@@ -33,7 +33,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-body text-csbie-text">
         <Navbar />
-        <main className="flex-grow pt-20 lg:pt-24">{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>

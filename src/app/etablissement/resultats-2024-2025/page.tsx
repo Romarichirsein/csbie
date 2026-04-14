@@ -1,3 +1,5 @@
+'use client';
+
 import SectionTitle from '@/components/ui/SectionTitle';
 import ExamResultCard from '@/components/ui/ExamResultCard';
 import Image from 'next/image';

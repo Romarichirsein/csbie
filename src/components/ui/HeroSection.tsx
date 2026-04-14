@@ -11,7 +11,7 @@ export default function HeroSection() {
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <section className="relative h-[calc(100vh-80px)] lg:h-[calc(100vh-96px)] w-full overflow-hidden bg-csbie-primary">
+    <section className="relative h-[calc(100vh-120px)] lg:h-[calc(100vh-160px)] w-full overflow-hidden bg-csbie-primary">
       {/* Background Image with Parallax */}
       <motion.div 
         style={{ y: y1 }}
