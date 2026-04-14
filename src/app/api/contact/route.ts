@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const contactSchema = z.object({
   nom: z.string().min(2),
   email: z.string().email(),
@@ -14,6 +12,12 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY is not defined in environment variables');
+    return NextResponse.json({ error: 'Configuration mail manquante' }, { status: 500 });
+  }
+  
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await request.json();
     const data = contactSchema.parse(body);
