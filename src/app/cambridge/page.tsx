@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import SectionTitle from '@/components/ui/SectionTitle';
 import CambridgeSwitcher from '@/components/ui/CambridgeSwitcher';
-import { BookOpen, Globe, Music, FlaskConical, Newspaper, Leaf, GraduationCap, CheckCircle } from 'lucide-react';
+import { BookOpen, Globe, Music, FlaskConical, Newspaper, Leaf, GraduationCap, CheckCircle, Phone } from 'lucide-react';
 
 const content = {
   fr: {
@@ -126,9 +126,21 @@ export default function CambridgePage() {
               <motion.h2 variants={fadeInUp} className="font-titles font-bold text-4xl md:text-5xl text-csbie-primary mb-8 leading-tight">
                 {t.messageTitle}
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-xl text-csbie-text/70 font-body leading-relaxed mb-10">
+              <motion.p variants={fadeInUp} className="text-xl text-csbie-text/70 font-body leading-relaxed mb-6">
                 {t.messageText}
               </motion.p>
+              
+              <motion.div variants={fadeInUp} className="mb-10 p-6 bg-csbie-gold/10 rounded-2xl border border-csbie-gold/20 inline-block">
+                <p className="text-csbie-gold font-titles font-bold text-lg mb-1">Contactez le Programme Cambridge :</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-csbie-gold/20 rounded-full flex items-center justify-center">
+                    <Phone className="text-csbie-gold" size={20} />
+                  </div>
+                  <a href="tel:+237683868433" className="text-2xl font-ui font-black text-csbie-primary hover:text-csbie-gold transition-colors">
+                    +237 6 83 86 84 33
+                  </a>
+                </div>
+              </motion.div>
               
               <div className="space-y-6">
                 {[

@@ -59,7 +59,25 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [currentLang, setCurrentLang] = useState('fr');
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const match = document.cookie.match(/googtrans=\/[a-z]{2}\/([a-z]{2})/);
+      if (match) {
+        setCurrentLang(match[1]);
+      }
+    }
+  }, []);
+
+  const setLanguage = (lang: string) => {
+    if (typeof document !== 'undefined') {
+      document.cookie = `googtrans=/fr/${lang}; path=/`;
+      document.cookie = `googtrans=/fr/${lang}; path=/; domain=${window.location.hostname}`;
+      window.location.reload();
+    }
+  };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) setScrolled(true);
@@ -106,9 +124,15 @@ export default function Navbar() {
               <div className="w-[1px] h-4 bg-white/10" />
               <div className="flex items-center gap-2 font-ui text-[10px] font-black uppercase tracking-widest cursor-pointer group">
                 <Globe size={12} className="text-csbie-gold group-hover:rotate-180 transition-transform duration-700" />
-                <span className="text-white">FR</span>
+                <button 
+                  onClick={() => setLanguage('fr')} 
+                  className={`transition-colors ${currentLang === 'fr' ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                >FR</button>
                 <span className="text-white/30">|</span>
-                <span className="text-white/40 hover:text-white transition-colors">EN</span>
+                <button 
+                  onClick={() => setLanguage('en')} 
+                  className={`transition-colors ${currentLang === 'en' ? 'text-white' : 'text-white/40 hover:text-white'}`}
+                >EN</button>
               </div>
             </div>
           </div>

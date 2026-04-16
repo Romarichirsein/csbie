@@ -118,7 +118,7 @@ export default function Footer() {
                 <span className="pt-1">Mini Prix Bastos, Yaoundé, Cameroun</span>
               </li>
               <li className="space-y-3">
-                {['+237 697 849 968', '+237 674 655 427'].map((tel) => (
+                {['+237 697 849 968', '+237 679 103 116'].map((tel) => (
                   <a key={tel} href={`tel:${tel.replace(/\s/g, '')}`} className="flex items-center gap-4 text-white/70 hover:text-csbie-gold font-ui text-sm transition-all group">
                     <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-csbie-gold/20 transition-all">
                        <Phone size={18} className="text-csbie-gold" />

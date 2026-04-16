@@ -89,27 +89,18 @@ export default function ActivitiesPage() {
             subtitle="Des moments de joie, de découverte et de partage capturés sur le vif."
           />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {[
-              { src: '/images/activities/activity-1.jpg', alt: 'Cours de danse traditionnelle', caption: 'Expression Artistique' },
-              { src: '/images/activities/activity-2.jpg', alt: 'Préparation spectacle', caption: 'Danse & Loisirs' },
-              { src: '/images/activities/activity-3.jpg', alt: 'Semaine de la jeunesse', caption: 'Fête de la Jeunesse' },
-              { src: '/images/activities/activity-4.jpg', alt: 'Célébration scolaire', caption: 'Partage & Joie' },
-              { src: '/images/activities/activity-5.jpg', alt: 'Coopérative scolaire', caption: 'Engagement' },
-              { src: '/images/activities/activity-6.jpg', alt: 'Vie d\'école', caption: 'Coopération' },
-              { src: '/images/activities/activity-7.jpg', alt: 'Arbre de Noël', caption: 'Magie de Noël' },
-              { src: '/images/activities/activity-8.jpg', alt: 'Spectacle de fin d\'année', caption: 'Spectacles' },
-            ].map((img, i) => (
+            {Array.from({ length: 19 }).map((_, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: (i % 4) * 0.1 }}
                 className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-zinc-100 shadow-lg hover:shadow-2xl transition-all duration-500"
               >
                 <Image 
-                  src={img.src}
-                  alt={img.alt}
+                  src={`/images/activities/real-activity-${i + 1}.jpeg`}
+                  alt={`Activité périscolaire CSBIE ${i + 1}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -118,7 +109,7 @@ export default function ActivitiesPage() {
                     CSBIE Life
                   </span>
                   <h4 className="text-white font-titles font-bold text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                    {img.caption}
+                    Moments de Découverte
                   </h4>
                 </div>
               </motion.div>
