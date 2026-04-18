@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    details: ['direction@csbie.org', 'secretariat@csbie.org'],
+    details: ['infos@csbie.org'],
     color: 'bg-csbie-gold/10 text-csbie-gold',
   },
   {

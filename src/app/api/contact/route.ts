@@ -23,8 +23,8 @@ export async function POST(request: NextRequest) {
     const data = contactSchema.parse(body);
 
     await resend.emails.send({
-      from: 'CSBIE Contact <noreply@csbie.org>',
-      to: process.env.CONTACT_EMAIL_TO || 'direction@csbie.org',
+      from: 'CSBIE Contact <infos@csbie.org>',
+      to: process.env.CONTACT_EMAIL_TO || 'infos@csbie.org',
       subject: `[Contact CSBIE] ${data.objet}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">

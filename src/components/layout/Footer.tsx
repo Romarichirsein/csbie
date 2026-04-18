@@ -131,7 +131,7 @@ export default function Footer() {
                 <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center">
                    <Mail size={18} className="text-csbie-gold" />
                 </div>
-                <a href="mailto:direction@csbie.org" className="hover:text-csbie-gold transition-colors">direction@csbie.org</a>
+                <a href="mailto:infos@csbie.org" className="hover:text-csbie-gold transition-colors">infos@csbie.org</a>
               </li>
             </ul>
           </motion.div>

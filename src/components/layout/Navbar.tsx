@@ -104,9 +104,9 @@ export default function Navbar() {
                 <MapPin size={12} className="text-csbie-gold" />
                 <span>Mini Prix Bastos, Yaoundé</span>
               </div>
-              <a href="mailto:direction@csbie.org" className="flex items-center gap-2 hover:text-csbie-gold transition-colors">
+              <a href="mailto:infos@csbie.org" className="flex items-center gap-2 hover:text-csbie-gold transition-colors">
                 <Mail size={12} className="text-csbie-gold" />
-                <span>direction@csbie.org</span>
+                <span>infos@csbie.org</span>
               </a>
               <div className="flex items-center gap-2">
                 <Clock size={12} className="text-csbie-gold" />
