@@ -33,7 +33,7 @@ export default function NewsletterForm() {
     
     try {
       const text = `*Nouvelle Inscription Newsletter (Site Web)*%0A%0A*Email:* ${data.email}`;
-      const waUrl = `https://wa.me/237697849968?text=${text}`;
+      const waUrl = `https://wa.me/237679103116?text=${text}`;
       
       window.open(waUrl, '_blank');
       

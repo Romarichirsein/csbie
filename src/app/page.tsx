@@ -5,6 +5,7 @@ import { CambridgeTeaser, SportsTeaser } from '@/components/ui/Teasers';
 import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
 import NewsletterForm from '@/components/ui/NewsletterForm';
 import SectionTitle from '@/components/ui/SectionTitle';
+import MotFondatrice from '@/components/ui/MotFondatrice';
 import Image from 'next/image';
 
 export default function Home() {
@@ -12,6 +13,9 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Mot de la Fondatrice */}
+      <MotFondatrice />
 
       {/* 4 Piliers Section */}
       <FourPillars />

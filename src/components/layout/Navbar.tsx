@@ -220,7 +220,7 @@ export default function Navbar() {
             {/* Right Actions */}
             <div className="flex items-center gap-4">
               <a 
-                href="tel:+237697849968" 
+                href="tel:+237679103116" 
                 className={`hidden xl:flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-300 ${
                   scrolled 
                     ? 'border-csbie-primary/10 text-csbie-primary bg-csbie-primary/5 group' 
@@ -232,7 +232,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-ui font-black uppercase tracking-widest opacity-50">Assistance</span>
-                  <span className="text-sm font-bold font-titles tracking-tight">+237 697 849 968</span>
+                  <span className="text-sm font-bold font-titles tracking-tight">+237 679 103 116</span>
                 </div>
               </a>
 

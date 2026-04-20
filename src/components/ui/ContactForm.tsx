@@ -34,7 +34,7 @@ export default function ContactForm() {
     try {
       // Construction du message WhatsApp
       const text = `*Nouveau Message de Contact (Site Web)*%0A%0A*Nom:* ${data.nom}%0A*Email:* ${data.email}%0A*Téléphone:* ${data.telephone || 'Non renseigné'}%0A*Objet:* ${data.objet}%0A*Message:*%0A${data.message}`;
-      const waUrl = `https://wa.me/237697849968?text=${text}`;
+      const waUrl = `https://wa.me/237679103116?text=${text}`;
       
       // Ouvrir WhatsApp dans un nouvel onglet
       window.open(waUrl, '_blank');
