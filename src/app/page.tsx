@@ -6,6 +6,7 @@ import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
 import NewsletterForm from '@/components/ui/NewsletterForm';
 import SectionTitle from '@/components/ui/SectionTitle';
 import MotFondatrice from '@/components/ui/MotFondatrice';
+import ContestSection from '@/components/ui/ContestSection';
 import Image from 'next/image';
 
 export default function Home() {
@@ -13,6 +14,9 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <HeroSection />
+
+      {/* 🔥 Concours d'Entrée en 6ème */}
+      <ContestSection />
 
       {/* Mot de la Fondatrice */}
       <MotFondatrice />
