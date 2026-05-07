@@ -333,7 +333,7 @@ export default function ContestSection() {
                     </div>
                   </div>
                   <a
-                    href="https://wa.me/237697849968?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20le%20concours%20d%27entr%C3%A9e%20en%206%C3%A8me%20au%20CSBIE.%20Merci."
+                    href="https://wa.me/237679103116?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20le%20concours%20d%27entr%C3%A9e%20en%206%C3%A8me%20au%20CSBIE.%20Merci."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl font-ui font-bold transition-all shadow-lg hover:shadow-green-600/30 group active:scale-95"
