@@ -10,6 +10,7 @@ const tuitionFees = [
   { level: 'Primaire Corresponds (Years 4-6)', fees: '750 000 FCFA' },
   { level: 'Secondaire (Years 7-9)', fees: '950 000 FCFA' },
   { level: 'Secondaire (Years 10-13)', fees: '1 250 000 FCFA' },
+  { level: 'Cambridge', fees: '2 000 000 FCFA' },
 ];
 
 const otherFees = [
