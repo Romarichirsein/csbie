@@ -1,7 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useEffect, Suspense } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { Music, FlaskConical, Newspaper, Leaf, Cpu, Paintbrush, Languages, Theater } from 'lucide-react';
 
@@ -15,6 +17,138 @@ const activities = [
   { icon: Languages, title: 'Clubs de Langues', text: 'Immersion ludique en Allemand, Espagnol et Mandarin pour une ouverture globale.' },
   { icon: Leaf, title: 'Environnement', text: 'Jardinage scolaire et sensibilisation au développement durable et à l\'écologie.' },
 ];
+
+// Combine activities and graduation photos in a single data structure
+const galleryItems = [
+  // Existing Activities photos
+  ...Array.from({ length: 19 }).map((_, i) => ({
+    id: `activity-${i + 1}`,
+    src: `/images/activities/real-activity-${i + 1}.jpeg`,
+    category: 'activities',
+    categoryLabel: 'Vie Scolaire',
+    title: 'Moments de Découverte'
+  })),
+  // New Graduation photos
+  {
+    id: 'graduation-1',
+    src: '/images/graduation/graduation-group-1.jpg',
+    category: 'graduation',
+    categoryLabel: 'Graduation 25/26',
+    title: 'Remise de diplômes'
+  },
+  {
+    id: 'graduation-2',
+    src: '/images/graduation/graduation-group-2.jpg',
+    category: 'graduation',
+    categoryLabel: 'Graduation 25/26',
+    title: 'Promotion 2025/2026'
+  },
+  {
+    id: 'graduation-3',
+    src: '/images/graduation/graduation-admin.jpg',
+    category: 'graduation',
+    categoryLabel: 'Direction & Lauréats',
+    title: 'Fierté Académique'
+  },
+  {
+    id: 'graduation-4',
+    src: '/images/graduation/graduation-student.jpg',
+    category: 'graduation',
+    categoryLabel: 'Diplômé à l\'honneur',
+    title: 'Succès Individuel'
+  }
+];
+
+function GalleryContent() {
+  const searchParams = useSearchParams();
+  const [activeFilter, setActiveFilter] = useState<'all' | 'activities' | 'graduation'>('all');
+
+  useEffect(() => {
+    const filterParam = searchParams.get('filter');
+    if (filterParam === 'graduation' || filterParam === 'activities') {
+      setActiveFilter(filterParam);
+      
+      // Smooth scroll to the gallery container
+      const galleryElement = document.getElementById('galerie');
+      if (galleryElement) {
+        setTimeout(() => {
+          galleryElement.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
+  }, [searchParams]);
+
+  const filteredItems = galleryItems.filter(item => 
+    activeFilter === 'all' ? true : item.category === activeFilter
+  );
+
+  return (
+    <section id="galerie" className="py-24 scroll-mt-24">
+      <div className="section-container">
+        <SectionTitle 
+          title="L'Esprit CSBIE en Images" 
+          subtitle="Des moments de joie, de découverte et de partage capturés sur le vif."
+        />
+
+        {/* Filter Navigation Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {[
+            { id: 'all', label: 'Tous' },
+            { id: 'activities', label: 'Activités & Clubs' },
+            { id: 'graduation', label: 'Graduation 2025/2026' }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveFilter(tab.id as any)}
+              className={`px-8 py-3 rounded-full font-ui text-xs font-bold uppercase tracking-wider transition-all duration-300 border ${
+                activeFilter === tab.id
+                  ? 'bg-csbie-primary text-white border-csbie-primary shadow-lg shadow-csbie-primary/20 scale-105'
+                  : 'bg-white text-csbie-primary/70 border-zinc-200 hover:border-csbie-primary hover:text-csbie-primary'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Animated Photo Grid */}
+        <motion.div 
+          layout
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-zinc-100 shadow-lg hover:shadow-2xl transition-all duration-500"
+              >
+                <Image 
+                  src={item.src}
+                  alt={`${item.categoryLabel} - ${item.title}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-csbie-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                  <span className="text-csbie-gold font-ui font-black text-[10px] uppercase tracking-[0.2em] mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    {item.categoryLabel}
+                  </span>
+                  <h4 className="text-white font-titles font-bold text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                    {item.title}
+                  </h4>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default function ActivitiesPage() {
   return (
@@ -81,42 +215,14 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
-      {/* Galerie d'Images Authentiques */}
-      <section className="py-24">
-        <div className="section-container">
-          <SectionTitle 
-            title="L'Esprit CSBIE en Images" 
-            subtitle="Des moments de joie, de découverte et de partage capturés sur le vif."
-          />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {Array.from({ length: 19 }).map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i % 4) * 0.1 }}
-                className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-zinc-100 shadow-lg hover:shadow-2xl transition-all duration-500"
-              >
-                <Image 
-                  src={`/images/activities/real-activity-${i + 1}.jpeg`}
-                  alt={`Activité périscolaire CSBIE ${i + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-csbie-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                  <span className="text-csbie-gold font-ui font-black text-[10px] uppercase tracking-[0.2em] mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    CSBIE Life
-                  </span>
-                  <h4 className="text-white font-titles font-bold text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                    Moments de Découverte
-                  </h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Galerie d'Images Authentiques wrapped in Suspense for searchParams */}
+      <Suspense fallback={
+        <div className="py-24 text-center text-zinc-400 font-ui text-sm">
+          Chargement de la galerie...
         </div>
-      </section>
+      }>
+        <GalleryContent />
+      </Suspense>
     </div>
   );
 }
