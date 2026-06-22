@@ -7,6 +7,7 @@ import NewsletterForm from '@/components/ui/NewsletterForm';
 import SectionTitle from '@/components/ui/SectionTitle';
 import MotFondatrice from '@/components/ui/MotFondatrice';
 import ContestSection from '@/components/ui/ContestSection';
+import GraduationSection from '@/components/ui/GraduationSection';
 import Image from 'next/image';
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
 
       {/* Mot de la Fondatrice */}
       <MotFondatrice />
+
+      {/* Graduation Section */}
+      <GraduationSection />
 
       {/* 4 Piliers Section */}
       <FourPillars />
