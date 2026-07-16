@@ -2,6 +2,7 @@
 
 import SectionTitle from '@/components/ui/SectionTitle';
 import ExamResultCard from '@/components/ui/ExamResultCard';
+import AcademicResults from '@/components/ui/AcademicResults';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Trophy, Star, TrendingUp } from 'lucide-react';
@@ -47,7 +48,7 @@ export default function Results2425Page() {
       {/* Hero Results */}
       <section className="relative h-[60vh] flex items-center overflow-hidden">
         <Image
-          src="/images/results-hero.jpeg"
+          src="/images/results-hero.png"
           alt="Résultats Académiques CSBIE"
           fill
           className="object-cover"
@@ -135,23 +136,15 @@ export default function Results2425Page() {
           >
              <h3 className="font-titles text-3xl font-bold text-csbie-primary mb-6">Hommage à nos encadreurs</h3>
              <p className="font-body text-csbie-text/70 max-w-3xl mx-auto text-lg leading-relaxed mb-8">
-               Ces résultats sont le fruit du travail acharné de nos élèves, mais aussi du dévouement sans faille de notre corps enseignant. Nous saluons leur rigueur et leur passion pédagogique.
+                Ces résultats sont le fruit du travail acharné de nos élèves, mais aussi du dévouement sans faille de notre corps enseignant. Nous saluons leur rigueur et leur passion pédagogique.
              </p>
              <Link href="/etablissement/staff" className="text-csbie-gold font-ui font-bold hover:underline">Voir l'équipe pédagogique</Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Link to Next Year */}
-      <section className="py-16 bg-zinc-100">
-        <div className="section-container text-center">
-          <p className="font-ui text-csbie-text/50 uppercase tracking-widest text-xs mb-4">À venir</p>
-          <h2 className="font-titles text-3xl font-bold text-csbie-primary mb-8 opacity-50">Résultats 2025-2026</h2>
-          <div className="inline-block px-8 py-3 bg-white border border-zinc-200 text-zinc-400 font-ui font-bold rounded-full">
-            Disponible prochainement via Sanity CMS
-          </div>
-        </div>
-      </section>
+      {/* Section Premium Résultats 2025 Officiels */}
+      <AcademicResults />
     </div>
   );
 }

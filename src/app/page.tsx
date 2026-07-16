@@ -8,6 +8,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import MotFondatrice from '@/components/ui/MotFondatrice';
 import ContestSection from '@/components/ui/ContestSection';
 import GraduationSection from '@/components/ui/GraduationSection';
+import AcademicResults from '@/components/ui/AcademicResults';
 import Image from 'next/image';
 
 export default function Home() {
@@ -24,6 +25,9 @@ export default function Home() {
 
       {/* Graduation Section */}
       <GraduationSection />
+
+      {/* 🎉 Résultats Académiques 2025 */}
+      <AcademicResults />
 
       {/* 4 Piliers Section */}
       <FourPillars />
